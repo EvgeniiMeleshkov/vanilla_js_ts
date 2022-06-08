@@ -41,7 +41,7 @@ type TechnologiesType = {
         title: string
 }
 
-type StudentType = {
+export type StudentType = {
     id: number
     name: string
     age: number
@@ -50,6 +50,12 @@ type StudentType = {
     technologies: Array<TechnologiesType>
 }
 
+export const addSkill = (student: StudentType, skill: string) => {
+    student.technologies.push({
+        id: new Date().getTime(),
+        title: skill
+    })
+}
 const student: StudentType = {
     id: 1,
     name: "name",
@@ -77,16 +83,21 @@ const student: StudentType = {
         }
     ]
 }
+export function becomeActive (st:StudentType) {
+    st.isActive = true
+}
+export const doesStudentLivesInCity = (st: StudentType, city: string) => {
+    return st.address.city.title === city
+}
 
-console.log(student.name)
-console.log(student.age)
-console.log(student.isActive)
-console.log(student.address.city.street)
-console.log(student.technologies[2].title)
+// console.log(student.name)
+// console.log(student.age)
+// console.log(student.isActive)
+// console.log(student.address.city.street)
+// console.log(student.technologies[2].title)
 
-
-const school = {
-    name: "It-Incubator",
-    IsOpen: true,
-    mentors: []
+export function comp(array1: Array<number>, array2: Array<number>){
+    const a = array1.map(el => el*el).sort()
+    const b = array2.sort()
+    return (JSON.stringify(a)===JSON.stringify(b))
 }
