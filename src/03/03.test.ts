@@ -1,4 +1,4 @@
-import {addSkill, becomeActive, comp, doesStudentLivesInCity, StudentType} from './02';
+import {addSkill, becomeActive, comp, doesStudentLivesInCity, StudentType} from '../02/02';
 
 let student: StudentType
 
